@@ -24,9 +24,13 @@
                                 <td>{{ $post->title }}</td>
                                 <td>{{ $post->slug }}</td>
                                 <td>
-                                    <a class="btn btn-info" href="#">Dettagli</a>
-                                    <a class="btn btn-warning" href="#">Modifica</a>
-                                    <a class="btn btn-danger" href="#">Elimina</a>
+                                    <a class="btn btn-info" href="{{ route("admin.posts.show", ["post" => $post->id])}}">Dettagli</a>
+                                    <a class="btn btn-warning" href="{{ route("admin.posts.edit", ["post" => $post->id]) }}">Modifica</a>
+                                    <form class="" action="{{ route("admin.posts.destroy", ["post" => $post->id]) }}" method="post">
+                                        @csrf
+                                        @method("DELETE")
+                                        <input type="submit" class="btn btn-danger" value="Elimina">
+                                    </form>
                                 </td>
                             </tr>
                         @empty
