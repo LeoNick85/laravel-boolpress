@@ -1,0 +1,19 @@
+.dashboard-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .dashboard-navbar {
+        width: 15%;
+        background-color: azure;
+        text-align: center;
+        padding: 80px;
+        min-height: 100vh;
+    };
+
+    .dashboard-content {
+        width: 85%;
+        background-color: lightgreen;
+        padding: 20px;
+    };
+
+};
