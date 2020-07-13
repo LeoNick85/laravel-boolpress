@@ -20,6 +20,7 @@
         <main class="dashboard-wrapper">
             <aside class="dashboard-navbar">
                 <a href=" {{ route("admin.home") }}">Home</a>
+                <a href=" {{ route("admin.posts.index") }}">Elenco post</a>
             </aside>
             <div class="dashboard-content">
                 @yield("content")
