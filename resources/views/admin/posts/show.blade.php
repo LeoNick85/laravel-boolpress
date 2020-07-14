@@ -8,8 +8,9 @@
                 <h1>Dettagli articolo</h1>
                 <h2>{{ $post->title }}</h2>
                 <p>{{ $post->content }}</p>
-                <p>{{ $post->created_at }}</p>
-                <p>{{ $post->updated_at }}</p>
+                <p>Categoria: {{ $post->category->name ?? ""}}</p>
+                <p>Data Creazione Post: {{ $post->created_at }}</p>
+                <p>Data ultimo aggiornamento: {{ $post->updated_at }}</p>
             </div>
         </div>
     </div>
