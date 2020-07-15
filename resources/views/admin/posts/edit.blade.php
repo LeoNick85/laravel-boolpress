@@ -19,12 +19,26 @@
                 <option value="">Seleziona categoria</option>
                 @foreach ($categories as $category)
                     <option value="{{$category->id}}"
-                        {{ ($post->category->id ?? "") == $category->id ? "selected" : ""}}>
+                        {{ old("category_id", ($post->category->id ?? "")) == $category->id ? "selected" : ""}}>
                         {{$category->name}}
                     </option>
                 @endforeach
             </select>
         </div>
+        @foreach ($tags as $tag)
+            <div class="form-group">
+            <label for="testo">
+                <input
+                    @if ($errors->any())
+                        {{ in_array($tag->id, old("tags", [])) ? "checked" : "" }}
+                    @else
+                        {{ $post->tags->contains($tag) ? "checked" : "" }}
+                    @endif
+                    type="checkbox" name="tags[]" class="form-check-input" value="{{ $tag->id }}">
+                    {{ $tag->name }}
+            </label>
+            </div>
+        @endforeach
         <button type="submit" class="btn btn-primary">Salva</button>
     </form>
 @endsection

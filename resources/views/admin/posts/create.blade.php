@@ -17,10 +17,22 @@
             <select class="form-control" id="categoria" name="category_id">
                 <option value="">Seleziona categoria</option>
                 @foreach ($categories as $category)
-                    <option value="{{$category->id}}">{{$category->name}}</option>
+                    <option {{ old("category_id") == $category->id ? "selected" : ""}} value="{{$category->id}}">
+                        {{$category->name}}
+                    </option>
                 @endforeach
             </select>
         </div>
+        @foreach ($tags as $tag)
+            <div class="form-group">
+            <label for="testo">
+                <input
+                {{ in_array($tag->id, old("tags", [])) ? "checked" : "" }}
+                type="checkbox" name="tags[]" class="form-check-input" value="{{ $tag->id }}">
+                {{ $tag->name }}
+            </label>
+            </div>
+        @endforeach
         <button type="submit" class="btn btn-primary">Salva</button>
     </form>
 @endsection

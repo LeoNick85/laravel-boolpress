@@ -9,6 +9,11 @@
                 <h2>{{ $post->title }}</h2>
                 <p>{{ $post->content }}</p>
                 <p>Categoria: {{ $post->category->name ?? ""}}</p>
+                <p><strong>Tags:</strong>
+                    @foreach ($post->tags as $tag)
+                        {{ $tag->name }} {{ $loop->last ? "" : ", "}}
+                    @endforeach
+                </p>
                 <p>Data Creazione Post: {{ $post->created_at }}</p>
                 <p>Data ultimo aggiornamento: {{ $post->updated_at }}</p>
             </div>
